@@ -1,10 +1,4 @@
-import os
+TITULO_CURSO = 'Curso Github Actions'
 
-
-def main():
-    nombre = os.getenv("USERNAME")
-    print(f"¡Hola, {nombre} desde GitHub!")
-
-
-if __name__ == "__main__":
-    main()
+print("¡Hola desde GitHub Actions!")
+print(TITULO_CURSO)
