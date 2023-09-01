@@ -1,4 +1,2 @@
-nombre = 'Haward'
-apellido = 'Tillero'
-
-print(nombre, apellido, sep=' ')
+titulo_curso = 'Github Actions'
+print(titulo_curso)
