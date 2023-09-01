@@ -4,5 +4,6 @@ jobs:
   hola-mundo: 
     runs-on: ubuntu-latest 
     steps: 
+      - uses: actions/checkout@v3
       - name: Hola mundo
         run: tree -aL 5     
