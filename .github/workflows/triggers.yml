@@ -1,0 +1,30 @@
+name: Triggers
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.py'
+
+  workflow_call:
+    inputs:
+      username:
+        description: 'Un nombre de usuario pasado desde el workflow'
+        default: 'Tu nombre'
+        required: true
+        type: string              
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir el input Username
+        run: echo "EL username es ${{ inputs.username }}"
+  
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Se realizó el Merge Exitosamente!"
