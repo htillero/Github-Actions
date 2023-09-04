@@ -1,4 +1,4 @@
-name: Triggers
+name: Reto 2 - Expermienta con los distintos Triggers
 on:
   push:
     branches:
