@@ -17,24 +17,25 @@ on:
         type: number
       fruta:
         description: 'Lista de Frutas'
-        default: 'Seleccione su fruta favorita'
+        default: Manzana
         required: true
         type: choice
-        options: [Frutilla, Pera, Manzana]      
+        options: 
+        - Frutilla
+        - Pera
+        - Manzana      
 jobs:
     fruta-favorita:
       runs-on: ubuntu-latest
       steps:
-      - name: CheckoutV3
-        uses: actions/checkout@v3
       - name: Fruta Seleccionada
         run: |
           if ${{ inputs.fruta == Frutilla }}; then
-            echo "Tu fruta favorita es la Frutilla"
+            echo ${{ inputs.name }} Tu fruta favorita es la Frutilla
           elif ${{ inputs.fruta == Pera }}; then
-            echo "Tu fruta favorita es la Pera"
+            echo ${{ inputs.name }} Tu fruta favorita es la Pera
           else 
-            echo "Tu fruta favorita es la Manzana"
+            echo ${{ inputs.name }} Tu fruta favorita es la Manzana
           fi
     mayor:
       if: ${{ inputs.edad >= 18 }} 
