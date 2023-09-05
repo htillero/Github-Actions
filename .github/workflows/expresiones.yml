@@ -9,7 +9,7 @@ on:
       nombre:
         description: 'Nombre'
         required: true
-        default: Ingresa tu nombre
+        default: Haward
         type: string
       edad:
         description: 'Edad'
