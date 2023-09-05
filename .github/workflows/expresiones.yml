@@ -20,22 +20,22 @@ on:
         default: Manzana
         required: true
         type: choice
-        options: 
+        options:
         - Frutilla
         - Pera
-        - Manzana      
+        - Manzana
 jobs:
     fruta-favorita:
       runs-on: ubuntu-latest
       steps:
       - name: Fruta Seleccionada
         run: |
-          if ${{ inputs.fruta == Frutilla }}; then
-            echo ${{ inputs.name }} Tu fruta favorita es la Frutilla
-          elif ${{ inputs.fruta == Pera }}; then
-            echo ${{ inputs.name }} Tu fruta favorita es la Pera
+          if ${{ inputs.fruta == 'Frutilla' }}; then
+            echo ${{ inputs.nombre }} Tu fruta favorita es la Frutilla 
+          elif ${{ inputs.fruta == 'Pera' }}; then
+            echo ${{ inputs.nombre }} Tu fruta favorita es la Pera
           else 
-            echo ${{ inputs.name }} Tu fruta favorita es la Manzana
+            echo ${{ inputs.nombre }} Tu fruta favorita es la Manzana
           fi
     mayor:
       if: ${{ inputs.edad >= 18 }} 
