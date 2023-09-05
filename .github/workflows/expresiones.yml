@@ -1,5 +1,9 @@
 name: Reto 3 - Aprende a usar Expresiones
 on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+
   workflow_dispatch:
     inputs:
       nombre:
