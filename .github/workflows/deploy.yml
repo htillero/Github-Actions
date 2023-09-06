@@ -1,9 +1,6 @@
-name: ci
-
+name: Deploy en Docker
 on:
-  push:
-    branches:
-      - 'main'
+  push
 
 jobs:
   docker:
