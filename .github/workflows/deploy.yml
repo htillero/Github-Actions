@@ -1,0 +1,10 @@
+name: Deploy en Docker
+on: pull_request
+jobs:
+  build:
+    steps:
+      - uses: tvrcgo/docker-builder@master
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          tags: tvrcgo/app:latest
