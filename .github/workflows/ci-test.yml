@@ -17,14 +17,12 @@ jobs:
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3: v3.6.0
         with:
           node-version: 18
-      - name: "Instalar CLI de Angular"
-        run: npm install -g @angular/cli@$ANGULAR_CLI_VERSION
-      - name: "Instalar dependencias"
+      - name: "Instalar CLI de Angular y dependencias"
         run: |
-          npm config set ignore-scripts true
-          npm install
+          npm install -g @angular/cli@$ANGULAR_CLI_VERSION
+          npm install --ignore-scripts
           cd frontend
-          npm install --legacy-peer-deps
+          npm install --ignore-scripts --legacy-peer-deps
       - name: "Lint"
         run: npm run lint
       - name: "Lint configuraciones personalizadas"
