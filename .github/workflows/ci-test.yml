@@ -21,9 +21,10 @@ jobs:
         run: npm install -g @angular/cli@$ANGULAR_CLI_VERSION
       - name: "Instalar dependencias"
         run: |
-          npm install --ignore-scripts
+          npm config set ignore-scripts true
+          npm install
           cd frontend
-          npm install --ignore-scripts --legacy-peer-deps
+          npm install --legacy-peer-deps
       - name: "Lint"
         run: npm run lint
       - name: "Lint configuraciones personalizadas"
