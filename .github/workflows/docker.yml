@@ -2,7 +2,7 @@ name: Creando Dockerfile
 on:
   push:
     branches:
-      - practicando
+      - aprendiendo-github-actions
 jobs:
     context:
       runs-on: ubuntu-latest
