@@ -1,0 +1,43 @@
+name: Reto 2 - Expermienta con los distintos Triggers
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.py'
+
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Un nombre de usuario pasado desde el workflow'
+        default: 'Ingresa tu nombre'
+        required: true
+        type: string             
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir el input Username
+        run: echo "EL username es ${{ inputs.username }}"
+  
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Se realizó el Merge Exitosamente!"
+
+  hola-mundo:
+    if: ${{ github.event_name != 'workflow_dispatch' }}
+    runs-on: ubuntu-latest #Imagen en la que correrá
+    steps: #Lista de steps del job hola-mundo
+      - name: CheckoutV3  #Nombre del 1er step
+        uses: actions/checkout@v3 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
+      - name: Directorios #Nombre del 2er step
+        run: tree -aL 5  #Comando que se va ejecutar
+
+      - name: Correr Script #Nombre del 3er step
+        run: python hola-mundo.py #Comando que se va ejecutar
